@@ -14,6 +14,38 @@ export default function App() {
         contentFit="contain"
         style={styles.granada}
         />
+        <View style={styles.contenedorSecundario}>
+          <Text style={[styles.titulo, {color:COLOR_TITULO}]}>
+            ¿Qué hacer en Granada?
+          </Text>
+          <ScrollView horizontal={true}>
+            <Image
+            source={require("./assets/actividad1.jpg")}
+            contentFit="contain"
+            style={styles.fotoCarrusel}
+          />
+          <Image
+            source={require("./assets/actividad2.jpg")}
+            contentFit="contain"
+            style={styles.fotoCarrusel}
+          />
+          <Image
+            source={require("./assets/actividad3.jpg")}
+            contentFit="contain"
+            style={styles.fotoCarrusel}
+          />
+          <Image
+            source={require("./assets/actividad4.jpg")}
+            contentFit="contain"
+            style={styles.fotoCarrusel}
+          />
+          <Image
+            source={require("./assets/actividad5.jpg")}
+            contentFit="contain"
+            style={styles.fotoCarrusel}
+          />
+          </ScrollView>
+        </View>
       </ScrollView>
     </View>
   )
@@ -26,5 +58,20 @@ const styles = StyleSheet.create({
   granada:{
     width:"100%",
     height:250
+  },
+  contenedorSecundario:{
+    flex:1,
+    marginHorizontal: 10,
+    padding: 5
+  },
+  titulo:{
+    fontSize: 24,
+    fontWeight: "bold"
+  },
+  fotoCarrusel:{
+    width:250,
+    height:300,
+    margin:10,
+    borderRadius:10
   }
 })

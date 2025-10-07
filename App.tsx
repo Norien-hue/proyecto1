@@ -15,8 +15,8 @@ export default function App() {
     <View style={[styles.contenedorPrincipal, {backgroundColor:COLOR_FONDO}]}>
       <ScrollView>
         <Image
-        source={require("./assets/granada_light.jpg")}
-        contentFit="contain"
+        source={require("./assets/granada_dark.jpg")}
+        contentFit="cover"
         style={styles.granada}
         />
         <View style={styles.contenedorSecundario}>
@@ -74,6 +74,37 @@ export default function App() {
           >
             <Text style={[styles.textoFoto, {color:COLOR_TEXTO_FOTO}]}>El centro</Text>
           </ImageBackground>
+          <Text style={[styles.titulo, {color:COLOR_TITULO}]}>Los mejores alojamientos</Text>
+          <View style={styles.contenedorFotosAlojamiento}>
+            <View style={styles.contenedorAlojamiento}>
+              <Image 
+              source={require("./assets/alojamiento1.jpg")}
+              contentFit='contain'
+              style={styles.fotoAlojamiento}
+              />
+            </View>
+            <View style={styles.contenedorAlojamiento}>
+              <Image 
+              source={require("./assets/alojamiento2.jpg")}
+              contentFit='contain'
+              style={styles.fotoAlojamiento}
+              />
+            </View>
+            <View style={styles.contenedorAlojamiento}>
+              <Image 
+              source={require("./assets/alojamiento3.jpg")}
+              contentFit='contain'
+              style={styles.fotoAlojamiento}
+              />
+            </View>
+            <View style={styles.contenedorAlojamiento}>
+              <Image 
+              source={require("./assets/alojamiento4.jpg")}
+              contentFit='contain'
+              style={styles.fotoAlojamiento}
+              />
+            </View>
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -112,14 +143,31 @@ const styles = StyleSheet.create({
     margin:"auto",
     fontSize:48,
     fontFamily:"bebasNeue",
+    //he intentado que se vea la sombra subiendole la opacidad pero nada no consigo que se vea
     shadowColor: "#000",
     shadowOffset: {
-	  width: 100,
-	  height: 25,
-    },
-    shadowOpacity: 0.25,
+	  width: 2,
+	  height: 2},
+    shadowOpacity: 0.8,
     shadowRadius: 3.84,
 
     elevation: 5,
+    },
+    contenedorFotosAlojamiento:{
+      flex:1,
+      flexDirection:"row",
+      flexWrap:"wrap",
+      gap:5,
+      justifyContent:"space-between",
+      marginBottom:15
+    },
+    fotoAlojamiento:{
+      width:"100%",
+      height:"100%"
+    },
+    contenedorAlojamiento:{
+      width:"49%",
+      aspectRatio:1
     }
-})
+  }
+)

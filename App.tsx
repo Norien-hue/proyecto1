@@ -1,12 +1,22 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native'
 import React from 'react'
 import { Image, ImageBackground } from 'expo-image'
 import { useFonts } from 'expo-font'
+import { TEMA_CLARO, TEMA_OSCURO } from './themes/Temas'
 
 export default function App() {
-  const COLOR_FONDO="#121212"
-  const COLOR_TITULO="#ffdd99"
-  const COLOR_TEXTO_FOTO="#ffffff"
+
+  let temaActivo = useColorScheme()
+  let tema = null
+  if(temaActivo=="dark"){
+    tema = TEMA_OSCURO
+  }else{
+    tema = TEMA_CLARO
+  }
+
+  const COLOR_FONDO=tema.colorFondo
+  const COLOR_TITULO=tema.colorTitulo
+  const COLOR_TEXTO_FOTO=tema.colorTextoFoto
   useFonts({
     "bebasNeue": require("./assets/BebasNeue-Regular.ttf")
   })
@@ -15,7 +25,7 @@ export default function App() {
     <View style={[styles.contenedorPrincipal, {backgroundColor:COLOR_FONDO}]}>
       <ScrollView>
         <Image
-        source={require("./assets/granada_dark.jpg")}
+        source={tema.logo}
         contentFit="cover"
         style={styles.granada}
         />
